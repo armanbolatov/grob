@@ -1,0 +1,6 @@
+env
+ru-gpts
+runs
+__pycache__
+data/model
+gpt*

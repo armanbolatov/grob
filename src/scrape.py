@@ -3,14 +3,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import time
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
-
 titles, lyrics = [], []
-
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get("https://www.gr-oborona.ru/texts/")
 
 blocks = driver.find_elements_by_tag_name("ul#abc_list")
-
 for block in blocks:
     title_elements = block.find_elements_by_tag_name("a")
     for title_element in title_elements:
@@ -37,8 +34,6 @@ for block in blocks:
         driver.back()
         time.sleep(2)
 
-all_lyrics = pd.DataFrame(
+pd.DataFrame(
     {'Title': titles, 'Lyrics': lyrics}
-)
-
-all_lyrics.to_excel("all_lyrics.xlsx")
+).to_excel("all_lyrics.xlsx")

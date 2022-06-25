@@ -1,0 +1,17 @@
+train:
+  model_type: gpt2
+  train_size: 0.9
+  per_gpu_batch_size: 1
+  gradient_steps: 1
+  num_train_epochs: 5
+  block_size: 150
+
+path:
+  model_load: sberbank-ai/rugpt3large_based_on_gpt2
+  model_write: data/model
+  pretrain: ru-gpts/pretrain_transformers.py
+  train: data/processed/train.txt
+  val: data/processed/val.txt
+  dataset: data/raw/all_lyrics.xlsx
+  test_title: song_title.txt
+  test_lyrics: song_lyrics.txt
