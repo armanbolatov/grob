@@ -2,7 +2,7 @@ from openpyxl import load_workbook
 from random import shuffle
 import yaml
 
-config = config = yaml.safe_load(open('config/params.yaml'))
+config = yaml.safe_load(open('config/params.yaml'))
 train_size      = config['train']['train_size']
 dataset_file    = config['path']['dataset']
 train_path      = config['path']['train']
