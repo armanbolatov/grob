@@ -2,6 +2,10 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import time
+import yaml
+
+config = yaml.safe_load(open('config/params.yaml'))
+dataset_path = config['path']['dataset']
 
 titles, lyrics = [], []
 driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -36,4 +40,4 @@ for block in blocks:
 
 pd.DataFrame(
     {'Title': titles, 'Lyrics': lyrics}
-).to_excel("all_lyrics.xlsx")
+).to_excel(dataset_path)
